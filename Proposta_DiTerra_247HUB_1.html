@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial — Di Terrá · 247HUB</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400&display=swap');
+
+  :root {
+    --terra: #2C1A0E;
+    --terra-mid: #4A2E1A;
+    --terra-light: #7A5240;
+    --gold: #C9A96E;
+    --gold-light: #E2C99A;
+    --gold-pale: #F5EDD8;
+    --cream: #FAF7F2;
+    --cream-dark: #F0EAE0;
+    --white: #FFFFFF;
+    --gray-50: #F8F6F2;
+    --gray-100: #EDE8DF;
+    --gray-200: #D4CCC0;
+    --gray-400: #9E9486;
+    --gray-600: #6B6259;
+    --gray-800: #3A3028;
+    --sage: #7A8C6E;
+    --sage-light: #B5C4A8;
+    --blush: #C4937A;
+    --success: #5A7A5A;
+    --warn: #B8860B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--gray-800);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ===== COVER ===== */
+  .cover {
+    background: var(--terra);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-ornament {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 42%;
+    background: var(--terra-mid);
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .cover-ornament::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 24px,
+      rgba(201,169,110,0.05) 24px,
+      rgba(201,169,110,0.05) 25px
+    );
+  }
+  .cover-gold-line {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, transparent 100%);
+  }
+  .cover-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .cover-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  .cover h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 58px;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    max-width: 600px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .cover-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--gray-200);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 48px;
+    color: var(--gray-400);
+    font-size: 13px;
+    position: relative;
+  }
+  .cover-meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .cover-meta-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+  .cover-meta-value { color: var(--gray-200); font-weight: 400; }
+  .cover-logos {
+    position: absolute;
+    bottom: 48px;
+    right: 72px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .cover-logo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: -0.3px;
+  }
+  .cover-logo-text span { color: var(--gold); }
+  .cover-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--terra-light);
+  }
+  .cover-for {
+    font-size: 12px;
+    color: var(--gray-400);
+    text-align: right;
+    line-height: 1.5;
+  }
+  .cover-for strong { display: block; color: var(--cream); font-size: 14px; }
+
+  /* ===== NAV ===== */
+  .toc {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+    padding: 0 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    box-shadow: 0 1px 8px rgba(44,26,14,0.06);
+  }
+  .toc a {
+    display: block;
+    padding: 16px 18px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .toc a:hover { color: var(--terra); border-bottom-color: var(--gold); }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 960px; margin: 0 auto; padding: 72px 40px; }
+  section { margin-bottom: 72px; }
+
+  /* ===== TYPOGRAPHY ===== */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--terra);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  h2 .num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--terra-mid);
+    margin: 36px 0 12px;
+    letter-spacing: 0.2px;
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin: 20px 0 8px;
+  }
+  .section-line {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 1px;
+    margin-bottom: 28px;
+  }
+  p { margin-bottom: 14px; color: var(--gray-800); }
+  strong { font-weight: 600; }
+  ul, ol { padding-left: 20px; }
+  li { margin-bottom: 7px; font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    background: var(--terra);
+    color: var(--cream);
+    padding: 24px 28px;
+    border-radius: 6px;
+    margin: 28px 0;
+    border-left: 3px solid var(--gold);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .callout strong { color: var(--gold-light); }
+
+  .callout-soft {
+    background: var(--gold-pale);
+    color: var(--terra);
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin: 20px 0;
+    border-left: 3px solid var(--gold);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ===== CARDS ===== */
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+    padding: 22px 26px;
+  }
+  .card-full { grid-column: 1 / -1; }
+  .card h4 { margin-top: 0; color: var(--terra-mid); font-size: 14px; }
+  .card ul { padding-left: 18px; margin: 8px 0; }
+  .card li { margin-bottom: 6px; font-size: 13.5px; color: var(--gray-600); }
+  .card-in { border-left: 3px solid var(--sage); }
+  .card-out { border-left: 3px solid var(--gray-200); }
+  .card-opt { border-left: 3px solid var(--gold); }
+
+  /* ===== FEATURE MODULES ===== */
+  .modules-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .module-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .module-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+  .module-icon { font-size: 24px; margin-bottom: 12px; display: block; }
+  .module-title { font-size: 14px; font-weight: 600; color: var(--terra); margin-bottom: 8px; }
+  .module-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+  /* ===== JOURNEY / ETAPAS ===== */
+  .journey {
+    position: relative;
+    margin: 32px 0;
+  }
+  .journey-track {
+    position: absolute;
+    left: 28px;
+    top: 40px;
+    bottom: 20px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-light) 100%);
+    opacity: 0.4;
+  }
+  .journey-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .journey-dot {
+    min-width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(201,169,110,0.15);
+  }
+  .journey-content {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+    padding: 18px 22px;
+    flex: 1;
+    margin-top: 8px;
+  }
+  .journey-title { font-size: 15px; font-weight: 600; color: var(--terra); margin-bottom: 4px; }
+  .journey-desc { font-size: 13px; color: var(--gray-600); line-height: 1.6; margin-bottom: 8px; }
+  .journey-unlock {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .journey-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .action-tag {
+    font-size: 11px;
+    padding: 2px 9px;
+    border-radius: 10px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-100);
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+
+  /* ===== USERS ===== */
+  .users-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .user-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+  }
+  .user-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .user-avatar.admin { background: var(--terra); }
+  .user-avatar.assessor { background: var(--sage); }
+  .user-avatar.casal { background: var(--blush); }
+  .user-name { font-size: 15px; font-weight: 600; color: var(--terra); margin-bottom: 4px; }
+  .user-desc { font-size: 12.5px; color: var(--gray-600); line-height: 1.6; margin-bottom: 14px; }
+  .user-perms { list-style: none; padding: 0; text-align: left; }
+  .user-perms li {
+    font-size: 12px;
+    color: var(--gray-600);
+    padding: 4px 0;
+    border-bottom: 1px solid var(--gray-50);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .user-perms li::before { content: '·'; color: var(--gold); font-size: 18px; line-height: 1; }
+  .user-perms li:last-child { border-bottom: none; }
+
+  /* ===== TIMELINE ===== */
+  .timeline { position: relative; margin: 28px 0; padding-left: 36px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--gray-100);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 18px 22px;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -29px; top: 22px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold-light);
+  }
+  .timeline-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  .timeline-title { font-size: 16px; font-weight: 600; color: var(--terra); margin-bottom: 6px; }
+  .timeline-desc { font-size: 13.5px; color: var(--gray-600); line-height: 1.6; }
+  .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .timeline-tag {
+    font-size: 11px; padding: 2px 10px;
+    background: var(--gray-50); border: 1px solid var(--gray-100);
+    border-radius: 10px; color: var(--gray-600); font-weight: 500;
+  }
+
+  /* ===== TABLES ===== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid var(--gray-100);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead { background: var(--terra); color: var(--cream); }
+  th { padding: 12px 16px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap; }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--gray-50); }
+
+  /* ===== FINANCIAL ===== */
+  .fin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .fin-card {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .fin-card.highlight { background: var(--terra); border-color: var(--terra); }
+  .fin-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray-400); margin-bottom: 10px; }
+  .fin-card.highlight .fin-label { color: var(--gold-light); }
+  .fin-value { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--terra); }
+  .fin-card.highlight .fin-value { color: var(--cream); }
+  .fin-sub { font-size: 12px; color: var(--gray-400); margin-top: 4px; line-height: 1.5; }
+  .fin-card.highlight .fin-sub { color: var(--gold-light); }
+
+  /* ===== ASSINATURA DIGITAL (OPCIONAL) ===== */
+  .optional-box {
+    border: 1px dashed var(--gold);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    background: var(--gold-pale);
+    position: relative;
+  }
+  .optional-badge {
+    position: absolute;
+    top: -12px; left: 20px;
+    background: var(--gold);
+    color: var(--terra);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 10px;
+  }
+
+  /* ===== STEPS ===== */
+  .steps { counter-reset: step; margin: 20px 0; }
+  .step-item { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    counter-increment: step;
+    min-width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--gold-pale);
+    border: 1.5px solid var(--gold-light);
+    color: var(--terra);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .step-text { flex: 1; padding-top: 4px; font-size: 15px; }
+  .step-text strong { display: block; margin-bottom: 2px; color: var(--terra); }
+  .step-text span { color: var(--gray-600); font-size: 14px; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--terra);
+    color: var(--gray-400);
+    padding: 48px 60px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .footer strong { color: var(--cream); }
+  .footer-line {
+    width: 60px; height: 1px;
+    background: var(--gold);
+    margin: 20px auto;
+  }
+  .footer a { color: var(--gold-light); text-decoration: none; }
+
+  /* ===== TAG ===== */
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 11.5px; font-weight: 600; }
+  .tag-green { background: #EBF5EB; color: var(--success); }
+  .tag-gold { background: var(--gold-pale); color: var(--terra); }
+  .tag-gray { background: var(--gray-100); color: var(--gray-600); }
+  .tag-opt { background: #FFF8E7; color: var(--warn); border: 1px solid #F5D878; }
+
+  /* ===== PRINT / RESPONSIVE ===== */
+  @media print {
+    .cover { min-height: auto; padding: 40px; }
+    .toc { display: none; }
+    .container { padding: 20px; }
+    section { page-break-inside: avoid; }
+  }
+  @media (max-width: 768px) {
+    .cover { padding: 40px 24px; }
+    .cover h1 { font-size: 36px; }
+    .container { padding: 40px 20px; }
+    .card-grid, .modules-grid, .users-grid, .fin-grid { grid-template-columns: 1fr; }
+    .toc { padding: 0 16px; }
+    .cover-meta { flex-direction: column; gap: 16px; }
+    .cover-logos { position: static; margin-top: 48px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cover-ornament { width: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+  <div class="cover-ornament"></div>
+  <div class="cover-gold-line"></div>
+
+  <div class="cover-label">Proposta Comercial · Confidencial</div>
+  <h1>Uma central para cada <em>grande dia</em></h1>
+  <p class="cover-sub">Plataforma digital para gestão completa da jornada do casal — do contrato ao casamento — integrada às operações da Di Terrá.</p>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Preparado por</span>
+      <span class="cover-meta-value">247HUB</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Para</span>
+      <span class="cover-meta-value">Di Terrá Eventos</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-label">Data</span>
+      <span class="cover-meta-value">Abril de 2026</span>
+    </div>
+  </div>
+
+  <div class="cover-logos">
+    <div class="cover-logo-text">247<span>HUB</span></div>
+    <div class="cover-divider"></div>
+    <div class="cover-for">
+      <strong>Di Terrá Eventos</strong>
+      Piracicaba, SP
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NAV ==================== -->
+<nav class="toc">
+  <a href="#resumo">Resumo Executivo</a>
+  <a href="#contexto">Contexto</a>
+  <a href="#solucao">A Solução</a>
+  <a href="#jornada">Jornada do Casal</a>
+  <a href="#perfis">Perfis de Acesso</a>
+  <a href="#assinatura">Assinatura Digital</a>
+  <a href="#cronograma">Cronograma</a>
+  <a href="#investimento">Investimento</a>
+  <a href="#proximos">Próximos Passos</a>
+</nav>
+
+<!-- ==================== CONTENT ==================== -->
+<div class="container">
+
+<!-- ===== 01 RESUMO ===== -->
+<section id="resumo">
+  <h2><span class="num">01</span> Resumo Executivo</h2>
+  <div class="section-line"></div>
+
+  <p>A Di Terrá é referência em casamentos de alto padrão na região de Piracicaba, operando quatro espaços distintos — A Querência, Palacete Monte Alegre, Casa Lucca e Espaço Terrá — com uma proposta de solução completa que integra gastronomia, bar, decoração e produção executiva.</p>
+  <p>Com contratos que antecedem o evento em até dois anos, o desafio central não é a venda — é a <strong>condução do casal ao longo de toda a jornada</strong>. Decisões se acumulam, fornecedores precisam ser acionados, aprovações ficam pendentes, e a equipe da Di Terrá absorve essa gestão de forma manual e dispersa.</p>
+
+  <div class="callout">
+    <strong>O que estamos propondo:</strong> uma plataforma web proprietária da Di Terrá que centraliza toda a comunicação, aprovações, financeiro e jornada de cada casal — com etapas desbloqueadas progressivamente, como um roteiro que garante que nada fique para a última hora.
+  </div>
+
+  <p>O sistema será desenvolvido pela 247HUB com foco em experiência do usuário, escalabilidade para múltiplas casas e integração com os processos reais da Di Terrá — incluindo integração com o <strong>SIVA</strong>, o ERP do Grupo Bisutti, via webhook HTTP, permitindo que dados de novos casais e eventos gerados na plataforma sejam enviados automaticamente ao sistema financeiro e de oportunidades já utilizado pelo grupo. A versão inicial entregue em plataforma web, com versão mobile (iOS e Android) disponível como expansão natural e já precificada nesta proposta.</p>
+</section>
+
+<!-- ===== 02 CONTEXTO ===== -->
+<section id="contexto">
+  <h2><span class="num">02</span> O Contexto e o Problema</h2>
+  <div class="section-line"></div>
+
+  <p>Casamentos com antecedência de 18 a 24 meses são comuns no mercado de alto padrão. O casal fecha o contrato animado, mas a urgência de decisões só aparece quando o evento está próximo — e então tudo precisa acontecer ao mesmo tempo.</p>
+
+  <h3>O ciclo atual e seus gargalos</h3>
+  <div class="card-grid">
+    <div class="card">
+      <h4>📋 Gestão dispersa</h4>
+      <ul>
+        <li>Reuniões registradas em e-mail, WhatsApp e planilhas</li>
+        <li>Atas sem rastreabilidade ou aprovação formal</li>
+        <li>Difícil saber onde cada casal está na jornada</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>⏰ Procrastinação do casal</h4>
+      <ul>
+        <li>Decisões adiadas por meses sem consequência visível</li>
+        <li>Pendências se acumulam e chegam em cima da hora</li>
+        <li>Equipe da Di Terrá cobre buracos operacionalmente</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>💬 Comunicação fragmentada</h4>
+      <ul>
+        <li>Assessor, casal e Di Terrá em canais diferentes</li>
+        <li>Informações se perdem ou são repassadas com ruído</li>
+        <li>Sem histórico consolidado de decisões tomadas</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>🏠 Múltiplas casas, zero segmentação</h4>
+      <ul>
+        <li>Comunicações institucionais chegam a todos igualmente</li>
+        <li>Não há canal direto por espaço (Querência, Lucca etc.)</li>
+        <li>Eventos e celebrações específicas não são aproveitados</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout-soft">
+    <strong>A oportunidade:</strong> transformar a Di Terrá no centro digital da experiência do casal — não apenas no dia do evento, mas nos 24 meses que o antecedem. Isso fortalece o relacionamento, reduz retrabalho e eleva a percepção de valor da marca.
+  </div>
+</section>
+
+<!-- ===== 03 A SOLUÇÃO ===== -->
+<section id="solucao">
+  <h2><span class="num">03</span> A Solução</h2>
+  <div class="section-line"></div>
+
+  <p>Uma plataforma web — acessível pelo navegador em qualquer dispositivo — que centraliza todas as interações entre a Di Terrá, seus assessores e os casais. Cada módulo foi pensado para o contexto específico de um espaço de eventos premium.</p>
+
+  <h3>Módulos da plataforma</h3>
+  <div class="modules-grid">
+    <div class="module-card">
+      <span class="module-icon">🗺️</span>
+      <div class="module-title">Jornada do Casal</div>
+      <div class="module-desc">Etapas sequenciais que desbloqueiam umas às outras. Cada fase tem ata, aprovação e NPS antes de avançar. Nada é pulado.</div>
+    </div>
+    <div class="module-card">
+      <span class="module-icon">💰</span>
+      <div class="module-title">Gestão Financeira</div>
+      <div class="module-desc">Parcelas, vencimentos, pagamentos confirmados e saldo pendente. Visão completa para o casal e para o time Di Terrá.</div>
+    </div>
+    <div class="module-card">
+      <span class="module-icon">📄</span>
+      <div class="module-title">Documentos e Contratos</div>
+      <div class="module-desc">Repositório centralizado de contratos assinados, aditivos e documentos de cada evento. Com opção de assinatura digital (módulo opcional).</div>
+    </div>
+    <div class="module-card">
+      <span class="module-icon">🤝</span>
+      <div class="module-title">Catálogo de Fornecedores</div>
+      <div class="module-desc">Fornecedores curadoria Di Terrá, organizados por categoria. Cadastro e gestão feitos pelo admin. Destaque para parceiros patrocinadores.</div>
+    </div>
+    <div class="module-card">
+      <span class="module-icon">📢</span>
+      <div class="module-title">Comunicação Segmentada</div>
+      <div class="module-desc">Envio de notificações e comunicados por casa (Querência, Lucca, Monte Alegre, Terrá). Eventos Celebration e avisos específicos por espaço.</div>
+    </div>
+    <div class="module-card">
+      <span class="module-icon">📊</span>
+      <div class="module-title">Painel Admin e Assessor</div>
+      <div class="module-desc">Visão consolidada de todos os casais em andamento, alertas de etapas atrasadas, e acesso do assessor a múltiplos casais sob seu portfólio.</div>
+    </div>
+  </div>
+
+  <h3>Escopo — o que está incluído na V1</h3>
+  <div class="card-grid">
+    <div class="card card-in">
+      <h4>✅ Incluído na versão web (V1)</h4>
+      <ul>
+        <li>Integração com SIVA (ERP Grupo Bisutti) via webhook</li>
+        <li>Jornada progressiva com etapas desbloqueáveis</li>
+        <li>Upload e aprovação de atas de reunião</li>
+        <li>NPS por etapa concluída</li>
+        <li>Gestão financeira com parcelas e histórico</li>
+        <li>Repositório de documentos e contratos (PDF)</li>
+        <li>Catálogo de fornecedores (cadastro pelo admin DT)</li>
+        <li>Perfis: Admin DT, Assessor e Casal</li>
+        <li>Comunicação segmentada por casa</li>
+        <li>Painel de alertas e acompanhamento de casais</li>
+        <li>Notificações por e-mail e no sistema</li>
+        <li>Responsivo (funciona em mobile via navegador)</li>
+      </ul>
+    </div>
+    <div class="card card-out">
+      <h4>🔜 App nativo iOS e Android (V2)</h4>
+      <ul>
+        <li>Todas as funcionalidades da V1</li>
+        <li>Push notifications nativas no celular</li>
+        <li>Experiência otimizada para mobile</li>
+        <li>Publicação na App Store e Google Play</li>
+        <li>Prazo e valor adicionais descritos na seção de investimento</li>
+      </ul>
+    </div>
+    <div class="card card-opt card-full">
+      <h4>✦ Módulo opcional — Assinatura Digital (ver seção 06)</h4>
+      <ul>
+        <li>Assinatura eletrônica com validade jurídica via API parceira</li>
+        <li>Fluxo integrado: contrato gerado → enviado → assinado → arquivado na plataforma</li>
+        <li>Custo adicional de desenvolvimento + mensalidade da API descrita na seção dedicada</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 JORNADA ===== -->
+<section id="jornada">
+  <h2><span class="num">04</span> Jornada do Casal — Etapas Sugeridas</h2>
+  <div class="section-line"></div>
+
+  <p>Abaixo, uma ilustração das etapas que fazem sentido para a execução de um casamento no contexto da Di Terrá. Cada etapa só é desbloqueada após a conclusão da anterior: envio da ata pelo time DT → aprovação pelo casal → NPS → próxima etapa disponível.</p>
+
+  <div class="callout-soft">
+    <strong>Lógica de desbloqueio:</strong> a Di Terrá (ou o assessor) registra a reunião e sobe a ata → o casal recebe notificação, revisa e aprova → preenche NPS rápido → a próxima etapa é desbloqueada automaticamente. Nenhuma etapa avança sem esse ciclo completo.
+  </div>
+
+  <div class="journey">
+    <div class="journey-track"></div>
+
+    <div class="journey-item">
+      <div class="journey-dot">📝</div>
+      <div class="journey-content">
+        <div class="journey-title">1. Contrato e boas-vindas</div>
+        <div class="journey-desc">Assinatura do contrato, acesso à plataforma, configuração do perfil do casal e da data. Upload do contrato e apresentação do painel.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Contrato assinado</span>
+          <span class="action-tag">Cadastro completo</span>
+        </div>
+        <div class="journey-unlock">🔓 Desbloqueia: Reunião de planejamento inicial</div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot">🎯</div>
+      <div class="journey-content">
+        <div class="journey-title">2. Reunião de planejamento inicial</div>
+        <div class="journey-desc">Definição do briefing geral: estilo, paleta de cores, número de convidados, preferências de gastronomia e bar. Ata sobe para aprovação do casal.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Ata de reunião</span>
+          <span class="action-tag">Aprovação casal</span>
+          <span class="action-tag">NPS</span>
+        </div>
+        <div class="journey-unlock">🔓 Desbloqueia: Reunião de decoração</div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot">🌸</div>
+      <div class="journey-content">
+        <div class="journey-title">3. Reunião de decoração e flores</div>
+        <div class="journey-desc">Definição do projeto de decoração, paleta floral, mesa de bolo e mobiliário. Referências visuais anexadas na ata para aprovação.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Ata com referências</span>
+          <span class="action-tag">Aprovação casal</span>
+          <span class="action-tag">NPS</span>
+        </div>
+        <div class="journey-unlock">🔓 Desbloqueia: Reunião de bar e cardápio</div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot">🍾</div>
+      <div class="journey-content">
+        <div class="journey-title">4. Reunião de bar e cardápio</div>
+        <div class="journey-desc">Definição do menu completo: entrada, principal, sobremesas, bebidas e coquetelaria. Degustação agendada e confirmada nessa etapa.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Menu aprovado</span>
+          <span class="action-tag">Ata de reunião</span>
+          <span class="action-tag">NPS</span>
+        </div>
+        <div class="journey-unlock">🔓 Desbloqueia: Confirmação de convidados</div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot">👥</div>
+      <div class="journey-content">
+        <div class="journey-title">5. Confirmação de lista de convidados</div>
+        <div class="journey-desc">Upload da lista final, mapa de mesas e restrições alimentares. Deadline claro vinculado à data do evento.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Lista enviada</span>
+          <span class="action-tag">Mapa de mesas</span>
+        </div>
+        <div class="journey-unlock">🔓 Desbloqueia: Reunião logística e fornecedores externos</div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot">🚚</div>
+      <div class="journey-content">
+        <div class="journey-title">6. Reunião de logística e fornecedores externos</div>
+        <div class="journey-desc">Alinhamento com fornecedores contratados externamente (fotógrafo, banda, DJ, etc.). Cronograma do dia aprovado pelo casal.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Cronograma do dia</span>
+          <span class="action-tag">Contatos de fornecedores</span>
+          <span class="action-tag">NPS</span>
+        </div>
+        <div class="journey-unlock">🔓 Desbloqueia: Checklist final (D-30)</div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot">✅</div>
+      <div class="journey-content">
+        <div class="journey-title">7. Checklist final (D-30)</div>
+        <div class="journey-desc">Revisão de todas as pendências. Pagamentos em dia, documentos entregues, confirmações de presença, ensaio e itens de cerimônia checados.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Checklist completo</span>
+          <span class="action-tag">Financeiro quitado</span>
+        </div>
+        <div class="journey-unlock">🔓 Desbloqueia: Acesso ao painel do dia do evento</div>
+      </div>
+    </div>
+
+    <div class="journey-item">
+      <div class="journey-dot">💍</div>
+      <div class="journey-content">
+        <div class="journey-title">8. O grande dia</div>
+        <div class="journey-desc">Painel com cronograma do dia em tempo real. Após o evento: NPS final, avaliação da experiência completa e área para depoimento.</div>
+        <div class="journey-actions">
+          <span class="action-tag">Cronograma em tempo real</span>
+          <span class="action-tag">NPS pós-evento</span>
+          <span class="action-tag">Depoimento</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:13px; color:var(--gray-600);">* As etapas acima são uma sugestão baseada nas melhores práticas do setor. O fluxo exato será refinado em conjunto com a equipe da Di Terrá durante a fase de descoberta do projeto.</p>
+</section>
+
+<!-- ===== 05 PERFIS ===== -->
+<section id="perfis">
+  <h2><span class="num">05</span> Perfis de Acesso</h2>
+  <div class="section-line"></div>
+
+  <p>A plataforma tem três perfis com permissões distintas, cada um com sua visão e responsabilidades no fluxo.</p>
+
+  <div class="users-grid">
+    <div class="user-card">
+      <div class="user-avatar admin">👑</div>
+      <div class="user-name">Admin Di Terrá</div>
+      <div class="user-desc">Controle total da plataforma, de todos os casais e de todas as casas.</div>
+      <ul class="user-perms">
+        <li>Gestão de todos os casais e eventos</li>
+        <li>Cadastro e edição de fornecedores</li>
+        <li>Upload e aprovação de atas</li>
+        <li>Gestão financeira completa</li>
+        <li>Envio de comunicados segmentados por casa</li>
+        <li>Configuração de etapas e fluxos</li>
+        <li>Relatórios e NPS consolidado</li>
+        <li>Gestão de assessores e casais vinculados</li>
+      </ul>
+    </div>
+    <div class="user-card">
+      <div class="user-avatar assessor">🎪</div>
+      <div class="user-name">Assessor</div>
+      <div class="user-desc">Profissional externo com acesso ao portfólio dos seus casais dentro da Di Terrá.</div>
+      <ul class="user-perms">
+        <li>Dashboard próprio com todos os seus casais</li>
+        <li>Acompanhamento de etapas em tempo real</li>
+        <li>Recebimento de atas e notificações</li>
+        <li>Visão financeira dos seus eventos</li>
+        <li>Upload de documentos relevantes</li>
+        <li>Comunicação interna com o time DT</li>
+      </ul>
+    </div>
+    <div class="user-card">
+      <div class="user-avatar casal">💑</div>
+      <div class="user-name">Casal</div>
+      <div class="user-desc">Experiência focada em acompanhar o próprio casamento com clareza e sem ansiedade.</div>
+      <ul class="user-perms">
+        <li>Painel da jornada com progresso visual</li>
+        <li>Aprovação de atas e decisões</li>
+        <li>Preenchimento de NPS por etapa</li>
+        <li>Visão financeira: parcelas e pagamentos</li>
+        <li>Acesso ao catálogo de fornecedores</li>
+        <li>Repositório de documentos do casamento</li>
+        <li>Notificações de novas etapas desbloqueadas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 ASSINATURA DIGITAL ===== -->
+<section id="assinatura">
+  <h2><span class="num">06</span> Módulo Opcional — Assinatura Digital</h2>
+  <div class="section-line"></div>
+
+  <p>A assinatura eletrônica com validade jurídica é um módulo que pode ou não fazer parte do escopo, dependendo do interesse da Di Terrá. Abaixo, uma análise objetiva das APIs disponíveis no mercado brasileiro.</p>
+
+  <div class="optional-box">
+    <span class="optional-badge">MÓDULO OPCIONAL</span>
+    <p style="margin-top: 8px; font-size: 14px; color: var(--terra);">O fluxo completo seria: <strong>contrato gerado na plataforma → enviado por e-mail → assinado digitalmente → arquivado automaticamente no repositório do casal</strong>. Elimina papel, devolução de contratos e retrabalho administrativo.</p>
+  </div>
+
+  <h3>Integração com SIVA — ERP do Grupo Bisutti</h3>
+  <p>A Di Terrá opera sobre o <strong>SIVA</strong>, sistema de gestão do Grupo Bisutti que centraliza contatos, oportunidades e dados de eventos. A plataforma será integrada nativamente ao SIVA via webhook HTTP POST, garantindo que novos casais cadastrados — e dados relevantes como data do evento, casa escolhida e número de convidados — sejam enviados automaticamente ao ERP, sem retrabalho manual de cadastro.</p>
+
+  <div class="callout-soft">
+    <strong>Impacto no prazo e valor:</strong> a integração com o SIVA é tecnicamente simples (API documentada, REST padrão) e está contemplada dentro do escopo e valor da V1. Não representa acréscimo de custo nem de tempo.
+  </div>
+
+  <h3>Análise das principais APIs de assinatura digital (Brasil)</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Serviço</th>
+          <th>Destaque</th>
+          <th>Custo estimado</th>
+          <th>Complexidade de integração</th>
+          <th>Recomendação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Clicksign</strong></td>
+          <td>API robusta, líder de mercado no Brasil, boa documentação, suporte em PT-BR</td>
+          <td>A partir de R$ 119/mês (plano Básico, 20 docs) até R$ 599/mês + uso</td>
+          <td>Baixa — SDK bem documentado, webhooks nativos</td>
+          <td><span class="tag tag-green">Recomendado</span></td>
+        </tr>
+        <tr>
+          <td><strong>ZapSign</strong></td>
+          <td>Preço competitivo, foco em pequenas e médias empresas, API moderna</td>
+          <td>A partir de R$ 79/mês, planos por volume de documentos</td>
+          <td>Baixa — REST API simples, boa documentação</td>
+          <td><span class="tag tag-gold">Alternativa viável</span></td>
+        </tr>
+        <tr>
+          <td><strong>D4Sign</strong></td>
+          <td>Especializado em documentos jurídicos, certificado ICP-Brasil opcional</td>
+          <td>A partir de R$ 149/mês, por documento acima da franquia</td>
+          <td>Média — mais robusto, mais configurável</td>
+          <td><span class="tag tag-gray">Se exigir ICP-Brasil</span></td>
+        </tr>
+        <tr>
+          <td><strong>DocuSign</strong></td>
+          <td>Padrão global, maior reconhecimento, API madura</td>
+          <td>USD 25–40/mês por usuário, custo em dólar</td>
+          <td>Média — bem documentado, porém custo em USD</td>
+          <td><span class="tag tag-gray">Superdimensionado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Impacto no investimento</h3>
+  <div class="card-grid">
+    <div class="card card-opt">
+      <h4>Custo de desenvolvimento adicional</h4>
+      <p style="font-size:14px; color:var(--gray-600);">A integração com Clicksign representa um acréscimo de <strong>R$ 15.000</strong> no desenvolvimento, cobrindo: fluxo de geração de contrato, envio automatizado, rastreamento de assinaturas e arquivamento na plataforma. Para integração com DocuSign (padrão global), o custo de desenvolvimento sobe para <strong>R$ 20.000</strong>, dado o maior escopo de configuração e o custo operacional em dólar.</p>
+    </div>
+    <div class="card card-opt">
+      <h4>Custo operacional mensal (Di Terrá)</h4>
+      <p style="font-size:14px; color:var(--gray-600);">Após a entrega, a Di Terrá arcará diretamente com o plano da API escolhida. Estimativa: <strong>R$ 119 a R$ 250/mês</strong> para o volume típico de contratos de casamentos, podendo variar conforme crescimento.</p>
+    </div>
+  </div>
+
+  <div class="callout-soft">
+    <strong>Nossa recomendação:</strong> incluir a assinatura digital no escopo inicial. O custo é baixo frente ao benefício operacional — e posiciona a Di Terrá como referência em modernização no mercado de eventos premium.
+  </div>
+</section>
+
+<!-- ===== 07 CRONOGRAMA ===== -->
+<section id="cronograma">
+  <h2><span class="num">07</span> Cronograma de Entrega</h2>
+  <div class="section-line"></div>
+
+  <p>A versão web será entregue em <strong>4 meses</strong>, dividida em fases com entregas incrementais e validações junto ao time da Di Terrá ao longo do processo.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-label">Mês 1 · Semanas 1–4</div>
+      <div class="timeline-title">Descoberta e Design</div>
+      <div class="timeline-desc">Mapeamento detalhado do fluxo operacional da Di Terrá. Definição final das etapas da jornada, perfis e regras de negócio. Prototipagem das telas principais com aprovação do cliente antes de iniciar o desenvolvimento.</div>
+      <div class="timeline-tags">
+        <span class="timeline-tag">Workshops com time DT</span>
+        <span class="timeline-tag">Protótipo navegável</span>
+        <span class="timeline-tag">Aprovação de UX</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-label">Mês 2 · Semanas 5–8</div>
+      <div class="timeline-title">Desenvolvimento — Core e Jornada</div>
+      <div class="timeline-desc">Construção da fundação da plataforma: autenticação e perfis de acesso, estrutura da jornada com desbloqueio de etapas, upload e aprovação de atas, e o módulo de NPS. Primeiras demos internas.</div>
+      <div class="timeline-tags">
+        <span class="timeline-tag">Autenticação e perfis</span>
+        <span class="timeline-tag">Engine de jornada</span>
+        <span class="timeline-tag">Sistema de NPS</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-label">Mês 3 · Semanas 9–12</div>
+      <div class="timeline-title">Desenvolvimento — Financeiro, Fornecedores e Comunicação</div>
+      <div class="timeline-desc">Módulo financeiro completo com controle de parcelas. Catálogo de fornecedores com gestão pelo admin. Sistema de comunicação segmentada por casa. Integração de assinatura digital (se contratada).</div>
+      <div class="timeline-tags">
+        <span class="timeline-tag">Módulo financeiro</span>
+        <span class="timeline-tag">Catálogo de fornecedores</span>
+        <span class="timeline-tag">Comunicados por casa</span>
+        <span class="timeline-tag tag-opt">Assinatura digital (opcional)</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-label">Mês 4 · Semanas 13–16</div>
+      <div class="timeline-title">QA, Ajustes e Lançamento</div>
+      <div class="timeline-desc">Testes completos com usuários reais (time DT e casais selecionados). Correções, refinamentos finais e configuração do ambiente de produção. Go-live.</div>
+      <div class="timeline-tags">
+        <span class="timeline-tag">Testes com usuários</span>
+        <span class="timeline-tag">Go-live</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Versão App (V2) — iOS e Android</h3>
+  <p>Após a entrega e estabilização da versão web, o desenvolvimento dos apps pode ser iniciado utilizando <strong>React Native</strong> — tecnologia que permite entregar iOS e Android a partir de uma única base de código, com experiência nativa em ambas as plataformas. A estimativa é de <strong>3 a 4 meses adicionais</strong>, com cronograma e valor detalhados em proposta complementar.</p>
+</section>
+
+<!-- ===== 08 INVESTIMENTO ===== -->
+<section id="investimento">
+  <h2><span class="num">08</span> Investimento</h2>
+  <div class="section-line"></div>
+
+  <h3>Versão Web (V1) — Escopo principal</h3>
+  <div class="fin-grid">
+    <div class="fin-card highlight">
+      <div class="fin-label">Desenvolvimento web</div>
+      <div class="fin-value">R$ 120.000</div>
+      <div class="fin-sub">Entrega em 4 meses<br>Time interno 247HUB</div>
+    </div>
+    <div class="fin-card">
+      <div class="fin-label">Módulo assinatura digital</div>
+      <div class="fin-value">+ R$ 15.000</div>
+      <div class="fin-sub">Opcional · integração Clicksign<br>+R$20k com DocuSign</div>
+    </div>
+    <div class="fin-card">
+      <div class="fin-label">Sustentação mensal</div>
+      <div class="fin-value">A definir</div>
+      <div class="fin-sub">Manutenção, suporte e<br>evoluções contínuas</div>
+    </div>
+  </div>
+
+  <div class="callout-soft">
+    <strong>Forma de pagamento:</strong> 4 parcelas mensais de <strong>R$ 30.000</strong>, cobradas ao final de cada mês de desenvolvimento após a prestação do serviço — sem pagamento antecipado. O investimento é integralmente realizado em contrapartida à entrega mensal comprovada.
+  </div>
+
+  <h3>Versão App Nativo (V2) — iOS e Android</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Descrição</th>
+          <th>Valor estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>App iOS e Android (React Native)</strong></td>
+          <td>Código único para ambas as plataformas, experiência nativa, publicação na App Store e Google Play</td>
+          <td>R$ 100.000 – R$ 120.000</td>
+        </tr>
+        <tr>
+          <td><strong>Push notifications nativas</strong></td>
+          <td>Alertas de novas etapas, vencimentos financeiros e comunicados da Di Terrá</td>
+          <td>Incluso no escopo acima</td>
+        </tr>
+        <tr>
+          <td><strong>Total V2 estimado</strong></td>
+          <td>iOS + Android via React Native, com aproveitamento integral do backend da V1</td>
+          <td><strong>R$ 100.000 – R$ 120.000</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size:13px; color:var(--gray-600);">* Os valores da V2 serão detalhados em proposta complementar após a estabilização da V1. O backend desenvolvido na versão web é reaproveitado integralmente, o que reduz significativamente o custo dos apps.</p>
+
+  <h3>O que está incluído no desenvolvimento</h3>
+  <div class="card-grid">
+    <div class="card">
+      <ul>
+        <li>Design UX/UI da plataforma completa</li>
+        <li>Desenvolvimento front-end web responsivo</li>
+        <li>Desenvolvimento back-end e banco de dados</li>
+        <li>Infraestrutura em nuvem (setup inicial)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul>
+        <li>Testes de qualidade e correções</li>
+        <li>30 dias de suporte pós-lançamento</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 09 PRÓXIMOS PASSOS ===== -->
+<section id="proximos">
+  <h2><span class="num">09</span> Próximos Passos</h2>
+  <div class="section-line"></div>
+
+  <p>Estamos prontos para começar. O caminho mais rápido para colocar a plataforma nas mãos dos casais da Di Terrá é:</p>
+
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num"></div>
+      <div class="step-text">
+        <strong>Alinhamento e aprovação da proposta</strong>
+        <span>Revisão conjunta do escopo, definição do módulo de assinatura digital e acordo sobre a forma de pagamento.</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num"></div>
+      <div class="step-text">
+        <strong>Assinatura do contrato de desenvolvimento</strong>
+        <span>Formalização do engajamento com a 247HUB. Prazo estimado: até 5 dias após o aceite.</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num"></div>
+      <div class="step-text">
+        <strong>Kickoff e workshop de descoberta</strong>
+        <span>Sessão de trabalho com o time Da Di Terrá para mapear o fluxo operacional real, validar as etapas da jornada e definir as prioridades.</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num"></div>
+      <div class="step-text">
+        <strong>Início do design e desenvolvimento</strong>
+        <span>Com o briefing consolidado, a 247HUB inicia o ciclo de design → protótipo → aprovação → desenvolvimento. Primeiros resultados visíveis em até 4 semanas.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>A Di Terrá já tem a visão do produto.</strong> Nossa função é transformar essa visão em realidade — com a solidez técnica de quem tem mais de uma década construindo software, e a sensibilidade de entender que cada casal confiou à Di Terrá um dos dias mais importantes de sua vida.
+  </div>
+
+  <div style="margin-top: 40px; padding: 28px; background: var(--white); border: 1px solid var(--gray-100); border-radius: 8px; text-align: center;">
+    <p style="font-size: 13px; color: var(--gray-400); margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">Para avançar ou esclarecer dúvidas</p>
+    <p style="font-size: 22px; font-family: 'Cormorant Garamond', serif; color: var(--terra); margin-bottom: 4px;">247HUB</p>
+    <p style="font-size: 14px; color: var(--gray-600);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="32515d5c4653465d720006055a47501c515d5f1c5040">[email&#160;protected]</a> &nbsp;·&nbsp; preview247hub.lovable.app</p>
+  </div>
+</section>
+
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+  <strong>247HUB</strong> — Tecnologia que transforma experiências<br>
+  <div class="footer-line"></div>
+  Proposta elaborada exclusivamente para <strong>Di Terrá Eventos</strong> · Documento confidencial · Abril de 2026<br>
+  <span style="font-size: 12px; color: var(--terra-light)
